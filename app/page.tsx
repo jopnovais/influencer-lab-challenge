@@ -4,6 +4,8 @@ import { useInfluencerStore } from "@/app/types/useInfluencerStore";
 import { FormNavigation } from "@/components/ui/form-navigation";
 import DnaBase from "@/components/steps/DnaBase";
 import StyleHair from "@/components/steps/Style-hair";
+import FinalResult from "@/components/steps/finalResult";
+import Details from "@/components/steps/details";
 import { Stepper } from "@/components/ui/stepper";
 import { Sidebar } from "@/components/ui/sidebar";
 
@@ -32,6 +34,8 @@ export default function HomePage() {
               <div className="flex-1 min-h-0 overflow-y-auto pr-1">
                 {currentStep === 1 && <DnaBase />}
                 {currentStep === 2 && <StyleHair />}
+                {currentStep === 3 && <Details />}
+                {currentStep === 4 && <FinalResult />}
               </div>
               <FormNavigation />
             </div>

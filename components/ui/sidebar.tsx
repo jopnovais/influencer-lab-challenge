@@ -1,24 +1,26 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { 
   ChevronDown, 
   CircleHelp, 
-  Sparkles, 
   User, 
   Folder, 
   ShoppingBag, 
   PlaySquare, 
-  MonitorPlay, 
+  MonitorPlay,
   Users, 
   Briefcase, 
-  Banknote 
+  Banknote, 
+  TvMinimalPlayIcon
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TiktokIcon } from "@/components/icons/tiktokIcon";
 
 const creationItems = [
   { label: "Laboratório de avatares", active: true, icon: User },
+  { label: "Geração de vídeos", active: false, icon:  TvMinimalPlayIcon},
   { label: "Meus projetos", active: false, icon: Folder }
 ];
 
@@ -41,10 +43,15 @@ export function Sidebar() {
   return (
     <aside className="hidden xl:flex w-[260px] shrink-0 h-screen sticky top-0 border-r border-[#1E1E2A] bg-[#0D0D14] text-[#B7B7C9] p-4 flex-col">
       <div className="mb-10"> 
-        <div className="h-10 rounded-lg border border-[#2A2A3B] bg-[#121220] px-3 flex items-center gap-2">
-          {/* O ícone da logo mantemos com a cor original violeta */}
-          <Sparkles className="w-4 h-4 text-violet-300" />
-          <span className="text-sm font-semibold text-white">Influencers Lab</span>
+        <div className="h-10 rounded-lg px-3 flex items-center gap-2">
+          <Image
+            src="/Logo.svg"
+            alt="Influencers Lab"
+            width={190}
+            height={40}
+            className="h-[40px] w-[190px]"
+            priority
+          />
         </div>
       </div>
 
@@ -55,11 +62,8 @@ export function Sidebar() {
       </div>
 
       <div className="mt-auto space-y-4 pt-4 border-t border-[#1E1E2A]">
-        {/* AQUI: Adicionado 'group' no botão */}
         <button className="w-full text-left text-sm px-2.5 py-2 rounded-md text-[#ACACC0] hover:bg-[#191929] transition-colors flex items-center gap-3 group">
-          {/* AQUI: Adicionado o efeito de hover no ícone */}
           <CircleHelp className="w-4 h-4 text-[#8E8EA6] group-hover:text-white transition-colors" />
-          {/* Opcional: Se quiser que o texto também fique branco no hover, adicione group-hover:text-white no span abaixo */}
           <span className="group-hover:text-white transition-colors">Central de ajuda</span>
         </button>
 
@@ -103,7 +107,6 @@ function NavSection({
             <button
               key={item.label}
               className={cn(
-                // AQUI: Adicionado 'group' na lista de classes base
                 "w-full text-left text-sm px-2.5 py-2 rounded-md transition-colors flex items-center gap-3 group",
                 item.active
                   ? "bg-violet-600 text-white font-medium shadow-[0_0_24px_rgba(124,58,237,0.35)]"
@@ -113,11 +116,9 @@ function NavSection({
               <Icon 
                 className={cn(
                   "w-4 h-4 transition-colors", 
-                  // AQUI: Se estiver ativo é branco, senão é cinza e fica branco no hover do 'group'
                   item.active ? "text-white" : "text-[#8E8EA6] group-hover:text-white"
                 )} 
               />
-              {/* Adicionado o hover no texto também para acompanhar o ícone e dar uma sensação melhor de interatividade */}
               <span className={cn("transition-colors", !item.active && "group-hover:text-white")}>
                 {item.label}
               </span>
@@ -143,7 +144,6 @@ function MarketplaceSection() {
           onClick={() => setIsTiktokOpen((prev) => !prev)}
           className="w-full text-left text-sm px-2.5 py-2 rounded-md hover:bg-[#191929] transition-colors flex items-center gap-3 group"
         >
-          {/* Ícone customizado do TikTok */}
           <TiktokIcon className="text-[#8E8EA6] group-hover:text-white transition-colors" />
           
           <span className="flex-1 text-[#D3D3E6] group-hover:text-white transition-colors">Tiktok Shop</span>
@@ -151,7 +151,6 @@ function MarketplaceSection() {
           <ChevronDown
             className={cn(
               "w-4 h-4 transition-all duration-200",
-              // AQUI: A setinha também herda a cor cinza e fica branca no hover
               "text-[#8E8EA6] group-hover:text-white",
               isTiktokOpen && "rotate-180"
             )}

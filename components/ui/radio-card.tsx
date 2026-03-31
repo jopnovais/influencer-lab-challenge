@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { Check } from "lucide-react";
-import { cn } from "@/lib/utils"; // Utilitário padrão do shadcn
+import { cn } from "@/lib/utils";
 
 interface RadioCardProps
   extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {
