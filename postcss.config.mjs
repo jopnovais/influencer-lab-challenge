@@ -1,8 +1,8 @@
 const config = {
   plugins: {
-    tailwindcss {},
+    tailwindcss: {},
     autoprefixer: {},
-  },
-};
+  }
+}
 
 export default config;

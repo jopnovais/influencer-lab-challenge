@@ -13,7 +13,7 @@ export default function HomePage() {
   const currentStep = useInfluencerStore((state) => state.currentStep);
 
   return (
-    <main className="h-screen overflow-hidden bg-[#0A0A10] text-white">
+    <main className="h-screen overflow-hidden bg-[#070410] text-white">
       <div className="flex h-full">
         <Sidebar />
 

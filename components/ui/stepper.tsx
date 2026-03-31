@@ -38,10 +38,10 @@ export function Stepper() {
                 className={cn(
                   "w-6 h-6 rounded-full flex items-center justify-center border transition-all duration-300 z-10",
                   (isActive || isCompleted) &&
-                    "bg-slate-200 border-black text-white shadow-[0_0_0_3px_rgba(124,58,237,0.12)]",
-                  !isActive && !isCompleted && "bg-black border-[#2A2A3A] text-white"
+                    "bg-[#EEEEFF] border-black text-white shadow-[0_0_0_3px_rgba(124,58,237,0.12)]",
+                  !isActive && !isCompleted && "bg-[#0A0616] border-[#2A2A3A] text-white"
                 )}
-              >
+              >git 
                 {isCompleted ? (
                   <Check className="w-3 h-3 stroke-[3] text-black" />
                 ) : null}
