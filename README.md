@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Influencers Lab - Criação de Avatares
 
-## Getting Started
+  **Deploy do Projeto**
+  https://influencer-lab-challenge.netlify.app
+  
+## Tecnologias Utilizadas
+- **React / Next.js (App Router):** Framework principal para construção da interface e roteamento.
+- **Tailwind CSS:** Estilização utilitária para um design rápido, consistente e altamente customizado (modo *dark* com tons em violeta).
+- **Zustand:** Gerenciamento de estado global. Utilizado para persistir os dados do influenciador entre as diferentes etapas do formulário sem a necessidade de *prop drilling*.
+- **Radix UI:** Componentes primitivos acessíveis. Implementado um contexto customizado (`RadioGroupDeselectContext`) por cima do Radix para permitir que os itens do formulário funcionem como *toggles* (marcar/desmarcar com um clique).
+- **React Dropzone:** Upload de imagens com suporte a *drag and drop* para a referência visual do avatar.
+- **Lucide React:** Biblioteca de ícones vetoriais.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Como rodar o projeto
+
+Pré-requisitos: Certifique-se de ter o [Node.js](https://nodejs.org/) instalado na sua máquina (versão 18+ recomendada).
+
+1. **Clone o repositório:**
+  ```git clone [https://github.com/jopnovais/influencer-lab-challenge.git]```
+
+Acesse a pasta do projeto:
+```Bash
+cd nome-do-repositorio
+Instale as dependências:
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```Bash
+npm install
+# ou yarn install / pnpm install
+Inicie o servidor de desenvolvimento:
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```Bash
+npm run dev
+Acesse no navegador:
+Abra http://localhost:3000 para ver o projeto rodando.
+```
+ 
+ **Decisões Técnicas**
+- Gerenciamento de Estado com Zustand: Em formulários multi-step complexos, manter o estado no componente pai pode causar re-renderizações desnecessárias. O Zustand foi escolhido por ser extremamente leve, dispensar boilerplate excessivo (como no Redux) e permitir que qualquer etapa do formulário leia ou atualize os dados do avatar de forma independente e reativa.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Componentização Avançada (Context API + Radix): Em vez de espalhar lógicas condicionais complexas por cada tela para permitir desmarcar opções de rádio, encapsulamos essa lógica nativamente num contexto (useRadioGroupDeselect) dentro do componente base do RadioGroup. Isso tornou o código das páginas incrivelmente limpo e escalável.
 
-## Learn More
+- Layout "Dashboard-like": A interface foi dividida usando Flexbox (h-screen, flex-col xl:flex-row, overflow-hidden), separando uma Sidebar de navegação fixa do conteúdo principal que possui seu próprio scroll (overflow-y-auto oculto com CSS customizado). Isso garante que o Stepper e o Header fiquem sempre visíveis, proporcionando uma sensação fluida de Single Page Application nativa.
 
-To learn more about Next.js, take a look at the following resources:
+- Mobile-First e Acessibilidade: A Sidebar foi adaptada para um modelo Drawer no mobile com um overlay para bloqueio de tela, protegendo o layout principal.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**O que faria diferente com mais tempo**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Validação de Formulários Avançada: Implementaria o React Hook Form integrado com o Zod para validar campos obrigatórios antes de permitir que o usuário avance no Stepper, exibindo mensagens de erro visuais.
 
-## Deploy on Vercel
+- Edição e Crop de Imagem: Na etapa de upload de referência visual, adicionaria uma biblioteca de corte (como o react-image-crop) para permitir que o usuário ajuste a imagem antes de salvá-la no estado.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Animações Mais Fluidas: Utilizaria o Framer Motion para gerenciar as transições entre os steps do formulário (animações de slide suaves na montagem e desmontagem dos componentes).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Persistência de Dados e Backend: Integração com um banco de dados (ex: Supabase, Prisma + PostgreSQL) para salvar os projetos incompletos em rascunho e permitir gerenciar "Meus projetos" na Sidebar.
+
+- Testes Automatizados: Criação de testes unitários para os componentes customizados (ex: garantir que a lógica de deselect do RadioCard nunca quebre) utilizando o Jest + React Testing Library, e testes E2E com o Cypress para simular o fluxo completo de criação de um avatar.
