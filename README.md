@@ -18,7 +18,9 @@
 Pré-requisitos: Certifique-se de ter o [Node.js](https://nodejs.org/) instalado na sua máquina (versão 18+ recomendada).
 
 1. **Clone o repositório:**
-  ```git clone [https://github.com/jopnovais/influencer-lab-challenge.git]```
+```bash
+git clone [https://github.com/jopnovais/influencer-lab-challenge.git]
+```
 
 Acesse a pasta do projeto:
 ```Bash
