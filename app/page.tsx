@@ -32,7 +32,7 @@ export default function HomePage() {
             </div>
 
             <div className="bg-[#0A0616] border border-[#232334] rounded-xl p-5 md:p-6 flex-1 min-h-0 flex flex-col">
-              <div className="flex-1 min-h-0 overflow-y-auto pr-1">
+              <div className="flex-1 min-h-0 overflow-y-auto pr-1 no-scrollbar">
                 {currentStep === 1 && <DnaBase />}
                 {currentStep === 2 && <StyleHair />}
                 {currentStep === 3 && <Details />}

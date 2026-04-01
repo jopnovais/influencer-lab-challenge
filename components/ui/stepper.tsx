@@ -16,16 +16,17 @@ export function Stepper() {
   const currentStep = useInfluencerStore((state) => state.currentStep);
 
   return (
-    <div className="w-full pt-3 pb-7">
+    <div className="w-full pt-4 pb-4">
       <div className="relative flex justify-between items-start">
         
-        <div className="absolute top-[12px] left-[60px] right-[60px] h-px bg-[#2A2A3A]" />
+        <div className="absolute top-[12px] left-[30px] right-[30px] h-[2px] bg-[#2A2A3A]" />
         
         <div
-          className="absolute top-[12px] left-[60px] h-px bg-violet-500 transition-all duration-500"
+          className="absolute top-[12px] left-[30px] h-[2px] bg-violet-500 transition-all duration-500"
           style={{
-            width: `calc((100% - 120px) * ${((currentStep - 1) / (steps.length - 1)).toString()})`,
-          }}
+            width: `calc((100% - 80px) * ${((currentStep - 1) / (steps.length - 1)).toString()})`,
+          }
+        }
         />
 
         {steps.map((step) => {
@@ -33,7 +34,7 @@ export function Stepper() {
           const isActive = currentStep === step.id;
 
           return (
-            <div key={step.id} className="relative flex flex-col items-center w-[120px]">
+            <div key={step.id} className="relative flex flex-col items-center w-auto">
               <div
                 className={cn(
                   "w-6 h-6 rounded-full flex items-center justify-center border transition-all duration-300 z-10",

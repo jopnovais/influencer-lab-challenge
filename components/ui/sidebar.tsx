@@ -205,7 +205,7 @@ function MarketplaceSection() {
   const [isTiktokOpen, setIsTiktokOpen] = useState(false);
 
   return (
-    <div className="mb-8">
+    <div className="mb-4">
       <div className="mb-3 text-[10px] uppercase tracking-[0.14em] text-[#6D6D83] font-semibold">
         MARKETPLACES
       </div>
@@ -232,7 +232,7 @@ function MarketplaceSection() {
 
         <div
           className={cn(
-            "ml-5 pl-4 border-l border-[#2A2A3A] space-y-1 my-1 overflow-hidden transition-all duration-300 ease-in-out",
+            "ml-4 pl-4 border-l border-[#2A2A3A] space-y-1 my-1 overflow-hidden transition-all duration-300 ease-in-out",
             isTiktokOpen ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0",
           )}
         >
