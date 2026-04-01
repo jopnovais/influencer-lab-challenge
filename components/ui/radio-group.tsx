@@ -5,16 +5,43 @@ import { RadioGroup as RadioGroupPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
+type RadioGroupDeselectContextValue = {
+  groupValue: string
+  onClearSelection: () => void
+}
+
+export const RadioGroupDeselectContext =
+  React.createContext<RadioGroupDeselectContextValue | null>(null)
+
+export function useRadioGroupDeselect() {
+  return React.useContext(RadioGroupDeselectContext)
+}
+
 function RadioGroup({
   className,
+  value,
+  onValueChange,
   ...props
 }: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {
+  const onClearSelection = React.useCallback(() => {
+    onValueChange?.("")
+  }, [onValueChange])
+
   return (
-    <RadioGroupPrimitive.Root
-      data-slot="radio-group"
-      className={cn("grid w-full gap-2", className)}
-      {...props}
-    />
+    <RadioGroupDeselectContext.Provider
+      value={{
+        groupValue: value ?? "",
+        onClearSelection,
+      }}
+    >
+      <RadioGroupPrimitive.Root
+        data-slot="radio-group"
+        className={cn("grid w-full gap-2", className)}
+        value={value}
+        onValueChange={onValueChange}
+        {...props}
+      />
+    </RadioGroupDeselectContext.Provider>
   )
 }
 

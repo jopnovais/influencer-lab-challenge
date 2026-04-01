@@ -51,17 +51,18 @@ export function ImageUpload({ value, onChange }: ImageUploadProps) {
   };
 
   return (
-    <div className="w-full max-w-[420px] flex flex-col gap-3">
-      <div className="flex flex-nowrap gap-2">
-        <button
+    <div className="w-full flex flex-col gap-4">
+      
+      <div className="flex flex-col sm:flex-row gap-3">
+        <button 
           onClick={open}
-          className="flex items-center gap-2 px-3 py-2 bg-[#090612] border border-gray-700 hover:border-violet-600 rounded-lg text-sm font-medium transition-all text-white whitespace-nowrap"
+          className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#090612] bg-gradient-to-br from-[rgba(139,92,246,0.15)] to-[rgba(59,130,246,0.02)] border border-gray-700 hover:border-violet-600 rounded-lg text-sm font-medium transition-all text-white w-full sm:w-auto"
         >
-          <Upload className="w-4 h-4" />
+          <Upload className="w-5 h-4" />
           Anexar imagem
         </button>
-        <button className="flex items-center gap-2 px-3 py-2 bg-[#090612] border border-gray-800 hover:border-gray-600 rounded-lg text-sm font-medium text-gray-400 transition-all whitespace-nowrap">
-          <ImageIcon className="w-4 h-4" />
+        <button className="flex items-center justify-center gap-2 px-4 py-2.5 bg-transparent border border-gray-800 hover:border-gray-600 rounded-lg text-sm font-medium text-gray-400 transition-all w-full sm:w-auto">
+          <ImageIcon className="w-5 h-4" />
           Utilize nosso banco de imagens
         </button>
       </div>
@@ -69,8 +70,8 @@ export function ImageUpload({ value, onChange }: ImageUploadProps) {
       <div
         {...getRootProps()}
         className={`
-          relative flex flex-col items-center justify-center w-full h-[clamp(230px,35vh,340px)] rounded-xl transition-all overflow-hidden
-          ${!value ? "border-2 border-dashed border-gray-700 hover:border-violet-500 bg-[#090612] cursor-pointer" : "border border-gray-800 bg-[#090612]"}
+          relative flex flex-col items-center justify-center w-full h-[400px] rounded-[16px] transition-all overflow-hidden
+          ${!value ? "border border-dashed border-gray-700 hover:border-violet-500 bg-[#090612] cursor-pointer" : "border border-gray-800 bg-[#090612]"}
           ${isDragActive ? "border-violet-500 bg-violet-500/10 scale-[0.99]" : ""}
         `}
       >     

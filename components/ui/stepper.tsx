@@ -41,7 +41,7 @@ export function Stepper() {
                     "bg-[#EEEEFF] border-black text-white shadow-[0_0_0_3px_rgba(124,58,237,0.12)]",
                   !isActive && !isCompleted && "bg-[#0A0616] border-[#2A2A3A] text-white"
                 )}
-              >git 
+              >
                 {isCompleted ? (
                   <Check className="w-3 h-3 stroke-[3] text-black" />
                 ) : null}

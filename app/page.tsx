@@ -4,8 +4,8 @@ import { useInfluencerStore } from "@/app/types/useInfluencerStore";
 import { FormNavigation } from "@/components/ui/form-navigation";
 import DnaBase from "@/components/steps/DnaBase";
 import StyleHair from "@/components/steps/Style-hair";
-import FinalResult from "@/components/steps/finalResult";
 import Details from "@/components/steps/details";
+import FinalResult from "@/components/steps/finalResult";
 import { Stepper } from "@/components/ui/stepper";
 import { Sidebar } from "@/components/ui/sidebar";
 
@@ -13,8 +13,9 @@ export default function HomePage() {
   const currentStep = useInfluencerStore((state) => state.currentStep);
 
   return (
-    <main className="h-screen overflow-hidden bg-[#070410] text-white">
-      <div className="flex h-full">
+    <main className="h-screen overflow-hidden bg-[#0A0A10] text-white">
+      <div className="flex flex-col xl:flex-row h-full">
+        
         <Sidebar />
 
         <div className="flex-1 h-full overflow-hidden px-4 py-4 md:px-8 lg:px-10">
@@ -35,7 +36,7 @@ export default function HomePage() {
                 {currentStep === 1 && <DnaBase />}
                 {currentStep === 2 && <StyleHair />}
                 {currentStep === 3 && <Details />}
-                {currentStep === 4 && <FinalResult />}
+                {currentStep === 4 && <FinalResult/>}
               </div>
               <FormNavigation />
             </div>

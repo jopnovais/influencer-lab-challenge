@@ -4,6 +4,7 @@ import { useInfluencerStore } from "@/app/types/useInfluencerStore";
 import { RadioGroup } from "@/components/ui/radio-group";
 import { RadioCard, DashedActionCard } from "@/components/ui/radio-card";
 import { ImageUpload } from "@/components/ui/image-upload";
+import { Mars, Venus } from "lucide-react";
 
 export default function DnaBase() {
   const { data, updateData } = useInfluencerStore();
@@ -38,9 +39,6 @@ export default function DnaBase() {
             onChange={(e) => updateData({ name: e.target.value })}
             className="w-full bg-[#090612] border border-gray-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-violet-600 focus:border-transparent transition-all"
           />
-        </section>
-
-        <section>
           <h3 className="text-sm font-semibold mb-3 text-gray-200">
             2. Qual o gênero?
           </h3>
@@ -49,8 +47,18 @@ export default function DnaBase() {
             onValueChange={(value) => updateData({ gender: value as any })}
             className="grid grid-cols-2 gap-2"
           >
-            <RadioCard value="Masculino" label="Masculino" icon="♂️" className="p-3" />
-            <RadioCard value="Feminino" label="Feminino" icon="♀️" className="p-3" />
+            <RadioCard 
+              value="Masculino" 
+              label="Masculino" 
+              icon={<Mars className="w-6 h-6" />} 
+              className="p-3" 
+            />
+            <RadioCard 
+              value="Feminino" 
+              label="Feminino" 
+              icon={<Venus className="w-6 h-6" />} 
+              className="p-3"
+            />
           </RadioGroup>
         </section>
 
@@ -63,8 +71,8 @@ export default function DnaBase() {
             onValueChange={(value) => updateData({ ageGroup: value as any })}
             className="grid grid-cols-2 gap-2"
           >
-            <RadioCard value="Jovem" label="Jovem (18-25)" icon="👩🏻" className="p-3" />
-            <RadioCard value="Adulto" label="Adulto (26-40)" icon="👩🏽‍💼" className="p-3" />
+            <RadioCard value="Jovem" label="Jovem (18-25)" icon="👩🏻" className="p-3"  />
+            <RadioCard value="Adulto" label="Adulto (26-40)" icon="👩🏽‍💼" className="p-3"  />
             <RadioCard value="Maduro" label="Maduro (41-60)" icon="👵🏼" className="p-3" />
             <RadioCard value="Sênior" label="Sênior (61+)" icon="👵🏻" className="p-3" />
           </RadioGroup>

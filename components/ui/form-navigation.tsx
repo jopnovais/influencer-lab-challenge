@@ -14,7 +14,7 @@ export function FormNavigation() {
       <button
         type="button"
         onClick={prevStep}
-        className="flex items-center gap-2 px-8 py-3 rounded-lg border border-[#8B5CF6]/90 text-white hover:bg-[#8B5CF6]/15 transition-all"
+        className="flex items-center gap-2 px-16 py-3 rounded-lg border border-[#8B5CF6]/90 text-white hover:bg-[#8B5CF6]/15 transition-all"
       >
         {currentStep === 1 ? (
           "Cancelar"
@@ -29,7 +29,7 @@ export function FormNavigation() {
       <button
         type="button"
         onClick={nextStep}
-        className="px-12 py-3 rounded-lg bg-violet-600 hover:bg-violet-500 text-white font-bold transition-all shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:scale-[1.02]"
+        className="px-16 py-3 rounded-lg bg-violet-600 hover:bg-violet-500 text-white font-bold transition-all shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:scale-[1.02]"
       >
         {isLastStep ? "Concluir Criação" : "Próximo"}
       </button>

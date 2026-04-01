@@ -79,7 +79,8 @@ export default function StyleHair() {
                 value={option.value}
                 label={option.label}
                 icon={<span className={`w-4 h-4 rounded-full ${option.dot}`} />}
-                className="p-3.5"
+                className="p-3"
+                
               />
             ))}
             <DashedActionCard label="+ Personalizar" onClick={() => {}} />
